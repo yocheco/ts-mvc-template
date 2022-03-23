@@ -1,0 +1,24 @@
+{
+  "name": "typescript-mvc",
+  "version": "1.0.0",
+  "description": "Tempate para sistemas MVC en Typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yocheco/typescript-mvc.git"
+  },
+  "keywords": [
+    "mvc",
+    "typescript",
+    "node"
+  ],
+  "author": "Sergio Rogelio Sandoval Cabrera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yocheco/typescript-mvc/issues"
+  },
+  "homepage": "https://github.com/yocheco/typescript-mvc#readme"
+}
