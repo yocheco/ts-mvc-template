@@ -5,7 +5,8 @@ import { engine } from 'express-handlebars'
 // Import Env
 import { Env } from './keys'
 // Import Routes
-import indexRoutes from './routes/index'
+// Backend
+import indexRoutesBackend from './routes/backend/index'
 
 // 🤞🏻Init
 const app: Application = express()
@@ -27,7 +28,8 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 
 // 🔀 Routes
-app.use('/', indexRoutes)
+// Admin
+app.use('/admin', indexRoutesBackend)
 
 // 🚀 Start
 app.listen(app.get('port'), () => {

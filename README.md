@@ -14,8 +14,9 @@ npm run dev
 ```
 
 ## Template backend 
-Sneat – Free Responsive Bootstrap 5 HTML5 Admin Template
-https://themewagon.com/themes/free-responsive-bootstrap-5-html5-admin-template-sneat/
+Sneat - Bootstrap 5 HTML Admin Template - Pro | v1.0.0
+Product Page: https://themeselection.com/products/sneat-bootstrap-html-admin-template/
+Created by: ThemeSelection
 
 
 ## Codigos git
