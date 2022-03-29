@@ -2,10 +2,11 @@ import path from 'path'
 import cookieParser from 'cookie-parser'
 import express, { Application } from 'express'
 import { engine } from 'express-handlebars'
+import actuator from 'express-actuator'
 // Import Env
 import { Env } from './keys'
 // Import Routes
-// Backend
+// -backend
 import indexRoutesBackend from './routes/backend/index'
 
 // 🤞🏻Init
@@ -27,8 +28,10 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 
+app.use(actuator())
+
 // 🔀 Routes
-// Admin
+// -admin
 app.use('/admin', indexRoutesBackend)
 
 // 🚀 Start
