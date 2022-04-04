@@ -2,16 +2,24 @@
 
 ## Getting Started
 
-Install dependences for npm
+### run dev
+
+1) Install dependences for npm
 ```
 npm install
 
 ```
 
-Run dev local NODEMON
+2) Run mongo to docker-compose
 ```
-npm run dev
+cd mongo
+docker-compose up -d
 ```
+
+3) Run dev nodemon
+```
+cd ..
+npm reun dev```
 
 ## Template backend 
 Sneat - Bootstrap 5 HTML Admin Template - Pro | v1.0.0

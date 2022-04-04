@@ -1,7 +1,7 @@
 export namespace Env{
     // App
     export const ENV = process.env.ENV || 'dev'
-    export const MONGOURI = process.env.MONGO || 'mongodb://localhost:27017/register-stream'
+    export const MONGOURI = process.env.MONGO || 'mongodb://localhost:27018/mvc'
     export const PORT = process.env.PORT || 3000
     export const JWT_SECTRET = process.env.JWT_SECTRET || '_shhhhhhh_'
     export const JWT_TIME_EX = process.env.JWT_TIME_EX || '4h'

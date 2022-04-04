@@ -5,6 +5,8 @@ import { engine } from 'express-handlebars'
 import actuator from 'express-actuator'
 // Import Env
 import { Env } from './keys'
+// Impoer Db
+import './database'
 // Import Routes
 // -backend
 import indexRoutesBackend from './routes/backend/index'
