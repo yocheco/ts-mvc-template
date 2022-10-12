@@ -8,7 +8,7 @@ module.exports = merge(common, {
   mode: 'production',
   entry: {
     app: { import: './src/app.ts' },
-    'public/frontend/js/index': { import: './src/public/frontend/js/main.js' }
+    'public/frontend/js/index': { import: './src/js/main.js' }
   },
   output: {
     path: buildDir,

@@ -7,12 +7,11 @@ const buildDir = path.resolve(__dirname, 'src')
 module.exports = merge(common, {
   mode: 'development',
   entry: {
-    'public/frontend/js/index': { import: './src/public/frontend/js/main.js' }
+    'public/frontend/js/index': { import: './src/js/main.js' }
   },
   output: {
     path: buildDir,
     filename: '[name].js'
-
   },
   plugins: [],
   module: {
