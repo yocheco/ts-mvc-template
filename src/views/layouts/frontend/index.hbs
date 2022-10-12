@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  {{>frontend/favicon }}
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Template | Webpack</title>
+  <style>
+    input{display: block;}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <label for="themeSelector" class="is-sr-only">Tema:</label>
+        <select id="themeSelector" class="a-select">
+          <option value="default">Por defecto</option>
+          <option value="light">Claro</option>
+          <option value="dark">Oscuro</option>
+      </select>
+    </div>
+  </header>
+  <!-- Content -->
+    {{{body}}}
+  <!-- / Content -->
+  <script defer src="/frontend/js/index.js"></script>
+</body>
+</html>

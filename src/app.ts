@@ -10,6 +10,7 @@ import './database'
 // Import Routes
 // -backend
 import indexRoutesBackend from './routes/backend/index'
+import indexRoutesFrontend from './routes/frontend/index'
 
 // 🤞🏻Init
 const app: Application = express()
@@ -35,6 +36,7 @@ app.use(actuator())
 // 🔀 Routes
 // -admin
 app.use('/admin', indexRoutesBackend)
+app.use('/', indexRoutesFrontend)
 
 // 🚀 Start
 app.listen(app.get('port'), () => {
