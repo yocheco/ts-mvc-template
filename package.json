@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "NODE_ENV=production rimraf dist && webpack --config webpack.prod.js",
+    "build-test": "NODE_ENV=production rimraf dist && webpack --config webpack.test.js",
     "build-dev": "webpack -w --config webpack.dev.js",
     "eslint": "eslint --fix --ext .ts .",
     "nodemon": "nodemon src/app.ts",

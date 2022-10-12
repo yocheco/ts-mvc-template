@@ -31,10 +31,5 @@ module.exports = merge(common, {
   ],
   module: {
     rules: []
-  },
-  optimization: {
-    splitChunks: {
-      chunks: 'all'
-    }
   }
 })

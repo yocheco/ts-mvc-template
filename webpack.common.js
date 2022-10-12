@@ -1,9 +1,9 @@
 
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const HandlebarsPlugin = require('handlebars-webpack-plugin')
-const sourceDir = path.join(__dirname, 'src')
-const buildDir = path.resolve(__dirname, 'dist')
+// const path = require('path')
+// const HtmlWebpackPlugin = require('html-webpack-plugin')
+// const HandlebarsPlugin = require('handlebars-webpack-plugin')
+// const sourceDir = path.join(__dirname, 'src')
+// const buildDir = path.resolve(__dirname, 'dist')
 
 module.exports = {
   target: 'node',
@@ -23,7 +23,7 @@ module.exports = {
       // [Babel]
       {
         test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
+        exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
