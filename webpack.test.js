@@ -31,42 +31,47 @@ const serverConfig = {
 }
 
 const clientConfig = {
-  target: 'web', // <=== can be omitted as default is 'web'
-  entry: {
-    'public/frontend/js/index': { import: './src/js/main.js' }
-  },
+  target: 'web',
+  entry: './src/js/main.js',
   output: {
-    path: buildDir,
-    filename: '[name].js',
-    publicPath: '/frontend/js/'
-    // chunkFilename: 'public/frontend/[name]-dddddddd.js'
+    path: path.resolve(__dirname, 'dist/public/frontend/js'),
+    filename: 'index.js',
+    publicPath: '/frontend/js/',
+    chunkFilename: '[name]-chunk.js'
+  },
+  optimization: {
+    flagIncludedChunks: true
   },
   resolve: {
     extensions: ['.ts', '.js', '.json']
   },
   plugins: [
-    // [Copy files]
-    // [template backend]
+    // ---[Copy files]---
+    // [Template backend]
     new CopyPlugin({
       patterns: [
-        { from: './src/public/backend', to: './public/backend' }
+        { from: './src/public/backend', to: '../../../public/backend' }
       ]
     }),
     // [Views]
     new CopyPlugin({
       patterns: [
-        { from: './src/views', to: './views' }
+        { from: './src/views', to: '../../../views' }
       ]
     })
   ],
   module: {
     rules: [
-      // [@ts]
+      // [Babel]
       {
-        test: /\.ts$/,
+        test: /\.m?js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'ts-loader'
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+            plugins: ['@babel/plugin-transform-runtime']
+          }
         }
       }
     ]

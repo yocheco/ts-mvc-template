@@ -28,6 +28,7 @@
   "homepage": "https://github.com/yocheco/typescript-mvc#readme",
   "devDependencies": {
     "@babel/core": "^7.19.3",
+    "@babel/plugin-transform-runtime": "^7.19.1",
     "@babel/preset-env": "^7.19.4",
     "@types/cookie-parser": "^1.4.2",
     "@types/express": "^4.17.13",
