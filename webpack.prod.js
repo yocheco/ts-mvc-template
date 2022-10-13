@@ -10,7 +10,7 @@ const serverConfig = {
   target: 'node',
   mode: 'production',
   entry: {
-    app: { import: './src/app.ts' }
+    server: { import: './src/server.ts' }
   },
   output: {
     path: buildDir,

@@ -2,7 +2,14 @@ import path from 'path'
 import cookieParser from 'cookie-parser'
 import express, { Application } from 'express'
 import { engine } from 'express-handlebars'
+import { flash } from 'express-flash-message'
 import actuator from 'express-actuator'
+import morgan from 'morgan'
+import setTZ from 'set-tz'
+import session from 'express-session'
+import bodyParser from 'body-parser'
+import methodOverride from 'method-override'
+
 // Import Env
 import { Env } from './keys'
 // Impoer Db
@@ -17,6 +24,13 @@ const app: Application = express()
 
 // 🛠 Settings
 app.set('port', Env.PORT)
+
+// add time zone
+setTZ(Env.TZ)
+// Override with POST having ?_method=DELETE
+app.use(methodOverride('_method'))
+app.use(bodyParser.urlencoded({ extended: true }))
+
 app.set('views', path.join(__dirname, 'views'))
 app.engine('.hbs', engine({
   extname: '.hbs',
@@ -33,12 +47,24 @@ app.use(cookieParser())
 
 app.use(actuator())
 
+// express-session
+// app.use(sessionMiddleware)
+app.use(
+  session({
+    secret: Env.JWT_SECTRET,
+    resave: false,
+    saveUninitialized: true
+  })
+)
+// Morgan
+// dev or common
+app.use(morgan('dev'))
+
+app.use(flash({ sessionKeyName: 'flashMessage', useCookieSession: true }))
+
 // 🔀 Routes
 // -admin
 app.use('/admin', indexRoutesBackend)
 app.use('/', indexRoutesFrontend)
 
-// 🚀 Start
-app.listen(app.get('port'), () => {
-  console.log(`Server listen in port : ${app.get('port')}`)
-})
+export default app

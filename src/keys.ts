@@ -7,6 +7,7 @@ export namespace Env{
     export const JWT_TIME_EX = process.env.JWT_TIME_EX || '4h'
     export const JWT_TIME_COOKIE = process.env.JWT_TIME_COOKIE || 90
     export const LADY_FAT = process.env.LADY_FAT || 'Docker_is_cool'
+    export const TZ = process.env.TZ || 'America/Mexico_City'
 
     // Prod Only
     export const MONGO_USERNAME = process.env.MONGO_USERNAME || 'demo'
