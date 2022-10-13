@@ -5,8 +5,6 @@
   "main": "index.js",
   "scripts": {
     "build": "NODE_ENV=production rimraf dist && webpack --config webpack.prod.js",
-    "build-test": "NODE_ENV=production rimraf dist && webpack --config webpack.test.js",
-    "build-dev": "webpack -w --config webpack.dev.js",
     "eslint": "eslint --fix --ext .ts .",
     "nodemon": "nodemon src/server.ts",
     "dev": "concurrently 'npm:nodemon' 'npm:build-dev'"
@@ -43,6 +41,7 @@
     "@typescript-eslint/eslint-plugin": "^5.5.0",
     "@typescript-eslint/parser": "^5.5.0",
     "babel-loader": "^8.2.5",
+    "babel-minify-webpack-plugin": "^0.3.1",
     "concurrently": "^7.4.0",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.1",

@@ -2,9 +2,10 @@ const { merge } = require('webpack-merge')
 const CopyPlugin = require('copy-webpack-plugin')
 const path = require('path')
 const common = require('./webpack.common.js')
-const buildDir = path.resolve(__dirname, 'dist')
-
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
+const MinifyPlugin = require('babel-minify-webpack-plugin')
+
+const buildDir = path.resolve(__dirname, 'dist')
 
 const serverConfig = {
   target: 'node',
@@ -35,6 +36,7 @@ const serverConfig = {
 
 const clientConfig = merge(common, {
   target: 'web',
+  devtool: 'source-map',
   mode: 'production',
   entry: './src/js/main.js',
   output: {
@@ -92,44 +94,8 @@ const clientConfig = merge(common, {
     ]
   },
   plugins: [
-    // new ImageMinimizerPlugin({
-    //   minimizer: {
-    //     implementation: ImageMinimizerPlugin.imageminMinify,
-    //     options: {
-    //       // Lossless optimization with custom option
-    //       // Feel free to experiment with options for better result for you
-    //       plugins: [
-    //         ['gifsicle', { interlaced: true }],
-    //         ['jpegtran', { progressive: true }],
-    //         ['optipng', { optimizationLevel: 5 }],
-    //         // Svgo configuration here https://github.com/svg/svgo#configuration
-    //         [
-    //           'svgo',
-    //           {
-    //             plugins: [
-    //               {
-    //                 name: 'preset-default',
-    //                 params: {
-    //                   overrides: {
-    //                     removeViewBox: false,
-    //                     addAttributesToSVGElement: {
-    //                       params: {
-    //                         attributes: [
-    //                           { xmlns: 'http://www.w3.org/2000/svg' }
-    //                         ]
-    //                       }
-    //                     }
-    //                   }
-    //                 }
-    //               }
-    //             ]
-    //           }
-    //         ]
-    //       ]
-    //     }
-    //   }
-    // }),
-    // ---[Copy files]---
+    new MinifyPlugin(),
+    // [Copy Assets]
     new CopyPlugin({
       patterns: [
         { from: './src/public/backend', to: '../../../public/backend' },
