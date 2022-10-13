@@ -1,5 +1,6 @@
 node_modules
 db-data
+db-data-prod
 .env
 
 # Webpack

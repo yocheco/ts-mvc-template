@@ -1,0 +1,37 @@
+version: "3.7"
+services:
+  node:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    env_file: .env
+    image: app
+    container_name: node
+    restart: always
+    expose:
+      - $PORT
+    ports:
+      - $PORT:$PORT
+    depends_on:
+      - db
+    networks:
+      - lordDev
+
+  db:
+    env_file: .env
+    image: mongo:4.4.1
+    container_name: db_mongo
+    restart: always
+    expose:
+      - 20017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=$MONGO_USERNAME
+      - MONGO_INITDB_ROOT_PASSWORD=$MONGO_PASSWORD
+    volumes:
+      - ./mongo/db-data-prod:/data/db
+    networks:
+      - lordDev
+
+networks:
+  lordDev:
+    driver: bridge
