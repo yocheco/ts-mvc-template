@@ -11,9 +11,7 @@ import bodyParser from 'body-parser'
 import methodOverride from 'method-override'
 
 // Import Env
-import { Env } from './keys'
-// Impoer Db
-import './database'
+import { Env } from './config/keys'
 // Import Routes
 // -backend
 import indexRoutesBackend from './routes/backend/index'
