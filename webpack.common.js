@@ -1,3 +1,5 @@
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
 module.exports = {
   target: 'web',
   optimization: {
@@ -9,7 +11,13 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.js', '.json']
   },
-  plugins: [],
+  plugins: [
+    // [css]
+    new MiniCssExtractPlugin({
+      filename: '../css/main.css',
+      chunkFilename: '[id].css'
+    })
+  ],
   module: {
     rules: [
       // [Babel]
@@ -23,6 +31,37 @@ module.exports = {
             plugins: ['@babel/plugin-transform-runtime']
           }
         }
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: '../assetsWebpack/fonts/[name][ext]'
+        }
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: 'auto'
+            }
+          },
+          {
+            loader: 'css-loader'
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
+      },
+      {
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, 'css-loader']
       }
     ]
   }

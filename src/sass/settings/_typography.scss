@@ -1,0 +1,22 @@
+$font-family: "Plus Jakarta Sans, sans-serif";
+$font-family-titles: "IntegralCF";
+$font-family-special: "Satoshi";
+
+// Typography scale
+$fs-base: 16;
+
+$_fs-9: calc(9 / $fs-base) + rem;
+$_fs-12: calc(12 / $fs-base) + rem;
+$_fs-14: calc(14 / $fs-base) + rem;
+$_fs-19: calc(19 / $fs-base) + rem;
+$_fs-25: calc(25 / $fs-base) + rem;
+$_fs-33: calc(33 / $fs-base) + rem;
+$_fs-44: calc(44 / $fs-base) + rem;
+
+// Typography applications
+$fs-body: $_fs-14;
+$fs-icon: $_fs-19;
+
+$fs-title-s: $_fs-25;
+$fs-title-m: $_fs-33;
+$fs-title-l: $_fs-44;

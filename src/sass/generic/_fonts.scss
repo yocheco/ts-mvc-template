@@ -1,0 +1,29 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&display=swap');
+
+@font-face {
+  font-family: "IntegralCF";
+  font-display: swap;
+  src:  url('./assets/fonts/IntegralCF-DemiBold.eot'); /* IE9 Compat Modes */
+  src:  url('./assets/fonts/IntegralCF-DemiBold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('./assets/fonts/IntegralCF-DemiBold.woff') format('woff'),
+        url('./assets/fonts/IntegralCF-DemiBold.woff2') format('woff');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  font-display: swap;
+  src:  url('./assets/fonts/Satoshi-Regular.eot'); /* IE9 Compat Modes */
+  src:  url('./assets/fonts/Satoshi-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('./assets/fonts/Satoshi-Regular.woff') format('woff'),
+        url('./assets/fonts/Satoshi-Regular.woff2') format('woff');
+  font-weight: 400;
+}
+
+// Fontawesome
+$fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
+@import '@fortawesome/fontawesome-free/scss/fontawesome';
+@import '@fortawesome/fontawesome-free/scss/solid';
+@import '@fortawesome/fontawesome-free/scss/regular';
+@import '@fortawesome/fontawesome-free/scss/brands';

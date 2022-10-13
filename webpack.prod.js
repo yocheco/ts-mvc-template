@@ -43,10 +43,10 @@ const clientConfig = merge(common, {
   },
   plugins: [
     // ---[Copy files]---
-    // [Template backend]
     new CopyPlugin({
       patterns: [
-        { from: './src/public/backend', to: '../../../public/backend' }
+        { from: './src/public/backend', to: '../../../public/backend' },
+        { from: './src/public/frontend/assets', to: '../../../public/frontend/assets' }
       ]
     }),
     // [Views]

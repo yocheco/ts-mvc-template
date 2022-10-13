@@ -1,0 +1,18 @@
+@use "../tools/screen";
+@use "../settings/spacing";
+@use "../settings/sizes";
+
+.container{
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 spacing.$padding-sm;
+
+  @include screen.media-up(sizes.$tablet){
+    padding: 0 spacing.$padding-md;
+    max-width: spacing.$max-width-md;
+  }
+
+  @include screen.media-up(sizes.$desktop){
+    max-width: spacing.$max-width-lg;
+  }
+}

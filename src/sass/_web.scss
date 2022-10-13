@@ -1,0 +1,85 @@
+:root{ 
+  --web-font-base: 1rem;
+  --web-font-min: 0.8rem;
+
+  --web-font-14: 1.1rem;
+  --web-font-18: 1.3rem;
+  --web-font-24: 1.5rem;
+  --web-font-26: 1.7rem;
+  --web-font-30: 1.9rem;
+
+  --web-font-h3: 1.5rem;
+  --web-font-h2: 1.7rem;
+  --web-font-h1: 2rem;
+
+  --web-gris: #f0f0f0;
+  --web-black: #000000;
+  --web-white: #FFFFFF;
+  --web-blue: #3c55ff;
+  
+  --web-select-text: #3c55ff;
+  --web-select-bg: #55164f;
+
+  --font-titles: "IntegralCF";
+  --font-defautl: "Satoshi";
+  --font-theme: 'Plus Jakarta Sans', sans-serif;
+}
+
+// [Padding]
+$paddingWebSm: 1.5rem;
+$paddingWebMd: 2rem;
+
+$breakpoints: (
+  sm: default,
+  md: 48rem,
+  lg: 64rem
+);
+
+@mixin media-up($breakpoint) {
+  @media screen and (min-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+// [Content]
+.container_web{
+  margin: auto;
+  padding: 0 $paddingWebSm;
+
+  @include media-up(md){
+    padding: 0 $paddingWebMd;
+    max-width: 70rem;
+  }
+
+  @include media-up(lg){
+    max-width: 90rem;
+  }
+}
+
+// [Refactor]
+::selection {
+  background: var(--web-select-bg);
+  color: var(--web-select-text);
+}
+// [Tools]
+.zoom{
+  transition: transform .5s;
+
+  &:hover{
+    transform: scale(1.1);
+  }
+}
+
+// [WEB]
+body{
+  font-family: var(--font-theme);
+}
+
+h1{
+  font-family: 'IntegralCF';
+  color: var(--web-blue);
+  background-image: url('../assets/img/logo.png');
+}
+h2{
+  font-family: 'Satoshi';
+}

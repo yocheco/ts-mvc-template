@@ -1,5 +1,9 @@
-dist
 node_modules
 db-data
 .env
+
+# Webpack
+dist
 src/public/frontend/js/*
+src/public/frontend/css/*
+src/public/frontend/assetsWebpack/*

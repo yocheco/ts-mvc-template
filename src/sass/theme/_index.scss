@@ -1,0 +1,30 @@
+@use "../settings/colors";
+
+
+@mixin light-theme {
+    --background-color: #{colors.$bg-light};
+    --text-color: #{colors.$text};
+    --brand: #{colors.$brand};
+}
+
+@mixin dark-theme {
+    --background-color: #{colors.$bg-dark};
+    --text-color: #{colors.$text-dark};
+    --brand: #{colors.$brand};
+}
+
+:root {
+    @include light-theme;
+
+    &.dark-theme {
+        @include dark-theme;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        @include dark-theme;
+
+        &.light-theme {
+        @include light-theme;
+        }
+    }
+}

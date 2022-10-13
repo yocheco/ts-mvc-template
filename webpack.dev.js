@@ -9,7 +9,7 @@ const clientConfig = merge(common, {
   output: {
     path: path.resolve(__dirname, 'src/public/frontend/js'),
     filename: 'index.js',
-    publicPath: '/frontend/js/',
+    // publicPath: '/frontend/js/',
     chunkFilename: '[name]-chunk.js'
   },
   plugins: [],

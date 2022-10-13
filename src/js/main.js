@@ -1,4 +1,5 @@
 import './theme/index'
+import '../sass/main.scss'
 document.onload = init()
 
 function init () {

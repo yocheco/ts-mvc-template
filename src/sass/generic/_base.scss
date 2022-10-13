@@ -1,0 +1,56 @@
+@use "../settings/colors";
+@use "../settings/typography";
+@use "../settings/spacing";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background-color);
+  color: var(--text-color);
+  font-family: #{typography.$font-family};
+  font-size: typography.$fs-body;
+  line-height: 1.8;
+}
+
+h1,h2,h3{
+  font-family: #{typography.$font-family-titles};
+  line-height: 1;
+  margin-bottom: #{spacing.$margin-top-h};
+}
+h1{font-size: typography.$fs-title-l;}
+h2{font-size: typography.$fs-title-m;}
+h3{font-size: typography.$fs-title-s;}
+
+p{margin-bottom: #{spacing.$margin-top-h};}
+
+a {color: colors.$text-primary;}
+a {
+  color: colors.$primary-color;
+  text-decoration: underline;
+
+  &:hover,
+  &:focus {
+    color: colors.$primary-hover-color;
+  }
+}
+
+img {
+	max-width: 100%;
+  height: auto;
+  aspect-ratio: attr(width) / attr(height);
+}
+
+:focus-visible {
+  outline: 1px solid colors.$brand;
+  // outline-offset: 0.2rem;
+}
+
+::selection {
+  background: colors.$select-bg;
+  color: colors.$select-text;
+}
+
+// icons
+i{ font-size: typography.$fs-icon;}
