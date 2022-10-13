@@ -6,6 +6,7 @@ const buildDir = path.resolve(__dirname, 'dist')
 
 const serverConfig = {
   target: 'node',
+  mode: 'production',
   entry: {
     app: { import: './src/app.ts' }
   },
@@ -30,20 +31,15 @@ const serverConfig = {
   }
 }
 
-const clientConfig = {
+const clientConfig = merge(common, {
   target: 'web',
+  mode: 'production',
   entry: './src/js/main.js',
   output: {
     path: path.resolve(__dirname, 'dist/public/frontend/js'),
     filename: 'index.js',
     publicPath: '/frontend/js/',
     chunkFilename: '[name]-chunk.js'
-  },
-  optimization: {
-    flagIncludedChunks: true
-  },
-  resolve: {
-    extensions: ['.ts', '.js', '.json']
   },
   plugins: [
     // ---[Copy files]---
@@ -61,21 +57,8 @@ const clientConfig = {
     })
   ],
   module: {
-    rules: [
-      // [Babel]
-      {
-        test: /\.m?js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env'],
-            plugins: ['@babel/plugin-transform-runtime']
-          }
-        }
-      }
-    ]
+    rules: []
   }
-}
+})
 
 module.exports = [serverConfig, clientConfig]

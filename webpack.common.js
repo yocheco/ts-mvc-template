@@ -1,37 +1,29 @@
-
-// const path = require('path')
-// const HtmlWebpackPlugin = require('html-webpack-plugin')
-// const HandlebarsPlugin = require('handlebars-webpack-plugin')
-// const sourceDir = path.join(__dirname, 'src')
-// const buildDir = path.resolve(__dirname, 'dist')
-
 module.exports = {
-  target: 'node',
+  target: 'web',
+  optimization: {
+    flagIncludedChunks: true,
+    splitChunks: {
+      chunks: 'all'
+    }
+  },
   resolve: {
     extensions: ['.ts', '.js', '.json']
   },
+  plugins: [],
   module: {
     rules: [
-      // [@ts]
-      {
-        test: /\.ts$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'ts-loader'
-        }
-      },
       // [Babel]
       {
-        test: /\.js$/,
+        test: /\.m?js$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env']
+            presets: ['@babel/preset-env'],
+            plugins: ['@babel/plugin-transform-runtime']
           }
         }
       }
     ]
-  },
-  plugins: []
+  }
 }

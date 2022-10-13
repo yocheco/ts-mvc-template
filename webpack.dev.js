@@ -1,25 +1,21 @@
+const path = require('path')
 const { merge } = require('webpack-merge')
 
-const path = require('path')
 const common = require('./webpack.common.js')
-const buildDir = path.resolve(__dirname, 'src')
 
-module.exports = merge(common, {
+const clientConfig = merge(common, {
   mode: 'development',
-  entry: {
-    'public/frontend/js/index': { import: './src/js/main.js' }
-  },
+  entry: './src/js/main.js',
   output: {
-    path: buildDir,
-    filename: '[name].js'
+    path: path.resolve(__dirname, 'src/public/frontend/js'),
+    filename: 'index.js',
+    publicPath: '/frontend/js/',
+    chunkFilename: '[name]-chunk.js'
   },
   plugins: [],
   module: {
     rules: []
-  },
-  optimization: {
-    splitChunks: {
-      chunks: 'all'
-    }
   }
 })
+
+module.exports = [clientConfig]

@@ -4,28 +4,55 @@ const path = require('path')
 const common = require('./webpack.common.js')
 const buildDir = path.resolve(__dirname, 'dist')
 
-module.exports = merge(common, {
+const serverConfig = {
+  target: 'node',
   mode: 'production',
   entry: {
-    app: { import: './src/app.ts' },
-    'public/frontend/js/index': { import: './src/js/main.js' }
+    app: { import: './src/app.ts' }
   },
   output: {
     path: buildDir,
     filename: '[name].js'
   },
+  resolve: {
+    extensions: ['.ts', '.js', '.json']
+  },
+  module: {
+    rules: [
+      // [@ts]
+      {
+        test: /\.ts$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'ts-loader'
+        }
+      }
+    ]
+  }
+}
+
+const clientConfig = merge(common, {
+  target: 'web',
+  mode: 'production',
+  entry: './src/js/main.js',
+  output: {
+    path: path.resolve(__dirname, 'dist/public/frontend/js'),
+    filename: 'index.js',
+    publicPath: '/frontend/js/',
+    chunkFilename: '[name]-chunk.js'
+  },
   plugins: [
-    // [Copy files]
-    // [template backend]
+    // ---[Copy files]---
+    // [Template backend]
     new CopyPlugin({
       patterns: [
-        { from: './src/public/backend', to: './public/backend' }
+        { from: './src/public/backend', to: '../../../public/backend' }
       ]
     }),
     // [Views]
     new CopyPlugin({
       patterns: [
-        { from: './src/views', to: './views' }
+        { from: './src/views', to: '../../../views' }
       ]
     })
   ],
@@ -33,3 +60,5 @@ module.exports = merge(common, {
     rules: []
   }
 })
+
+module.exports = [serverConfig, clientConfig]
