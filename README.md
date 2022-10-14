@@ -1,26 +1,45 @@
-# typescript-mvc
+## 🚀 Ts-mvc-template
 
-## Getting Started
+## Tech Stack
 
-### run dev
+**Client:** handlebars, Sass, Webpack
 
-1) Install dependences for npm
+**Server:** Node, Express, docker, docker-compose
+
+**Db:** Mongo
+
+## Installation
+Server in nodemo and front in webpack
+
+-[Dev]
+1) Install all npm
+```bash
+npm i
 ```
-npm install
+2) Run mongo dev
+```bash
+make i_up
 ```
-
-2) Run mongo to docker-compose
-```
-cd mongo
-docker-compose up -d
-```
-
 3) Run dev nodemon
-```
-cd ..
-npm reun dev
+```bash
+npm run dev
 ```
 
+-[Build]
+1) Install all npm
+```bash
+npm i
+```
+2) Run build
+```bash
+npm run build
+```
+
+-[docker]
+Up docker
+```bash
+make up
+```
 ## Template backend 
 Sneat - Bootstrap 5 HTML Admin Template - Pro | v1.0.0
 Product Page: https://themeselection.com/products/sneat-bootstrap-html-admin-template/

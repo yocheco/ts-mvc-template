@@ -5,8 +5,7 @@ RUN mkdir -p /usr/app
 RUN chmod -R 777 /usr/app
 WORKDIR /usr/app
 
-# Install Google Chrome Stable and fonts
-# Note: this installs the necessary libs to make the browser work with Puppeteer.
+# Note: this installs the necessary libs to make the images in webpack.
 RUN set -ex \
     && apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -23,7 +22,6 @@ RUN set -ex \
 
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
 COPY package*.json ./
 RUN npm install --silent
 
